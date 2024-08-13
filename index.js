@@ -6,6 +6,7 @@ import { getBanners, getBanner, updateBanner, createBanner } from './config.js'
 
 
 const app = express();
+const port = process.env.PORT || 3000;
 app.use(cors()); // Enable CORS
 app.use(express.json());
 app.use((err, req, res, next) => {
@@ -34,6 +35,6 @@ app.put('/update/:id', async (req, res) => {
     res.status(200).send(banner);
 });
 
-app.listen(3000, () => {
-    console.log('express is running on the server');
-});
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
